@@ -1,1 +1,1 @@
-# js_demos_daui
+# Live Coding Demos for DAUI
