@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Corrected lang attribute syntax here -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hover and Click Example</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+            /* The CSS property cursor: pointer; is used to change the mouse cursor appearance */
+            /* when hovering over something to indicate clickability */
+            /* When applied to an element, such as a <div>, <button>, or any other clickable element */
+            /* it will change the cursor from a default arrow to a hand pointer icon */
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <!-- jQuery is a JavaScript library that simplifies things like document traversal, manipulation, event handling, and animation -->
+    <script>
+        $(document).ready(function() {
+            // The document ready function ensures the DOM is fully loaded before running the code
+            console.log("Document is ready, baby!");
+
+            $("*:not(body)").hover(
+                // Select all elements except the body element using the :not() selector
+                // Hover event: attaches event handlers for mouse enter and mouse leave events
+                function() {
+                    // This function is executed when the mouse enters the matched element
+                    console.log("Mouse entered:", this);
+                    $(this).css("background-color", "green"); // Change the background color on hover
+                },
+                function() {
+                    // This function is executed when the mouse leaves the matched element
+                    console.log("Mouse left:", this);
+                    $(this).css("background-color", "orange"); // Change the background color back on mouse leave
+                }
+            );
+
+            $("*:not(body)").click(function() {
+                // This function is executed when the matched element is clicked
+                console.log("Element clicked:", this);
+                $(this).css("background-color", "yellow"); // Change the background color on click
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>Thing 1</div>
+    <div>Thing 2</div>
+    <div>Thing 3</div>
+</body>
+</html>
